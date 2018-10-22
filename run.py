@@ -13,7 +13,7 @@ import pynput
 import world4py
 import argparse
 
-world4py._WORLD_LIBRARY_PATH = 'x64_world.dll'
+# world4py._WORLD_LIBRARY_PATH = 'x64_world.dll'
 
 from become_yukarin import SuperResolution
 from become_yukarin.config.sr_config import create_from_json as create_sr_config
@@ -180,8 +180,8 @@ def main():
     queue_output_feature = Queue()
     queue_output_wave = Queue()
 
-    input_statistics_path = Path('./trained/f0_statistics/hiho_f0stat.npy')
-    target_statistics_path = Path('./trained/f0_statistics/yukari_f0stat.npy')
+    input_statistics_path = Path('./dat/out_1st_my_npy/')
+    target_statistics_path = Path('./dat/out_1st_yukari_npy/')
     f0_converter = F0Converter(input_statistics=input_statistics_path, target_statistics=target_statistics_path)
     # model_path = Path('./trained/f0trans-wmc-multi-ref-el8-woD/predictor_13840000.npz')
     # config_path = Path('./trained/f0trans-wmc-multi-ref-el8-woD/config.json')
@@ -205,8 +205,8 @@ def main():
     )
     print('model 1 loaded!', flush=True)
 
-    model_path = Path('./trained/sr-noise3/predictor_180000.npz')
-    config_path = Path('./trained/sr-noise3/config.json')
+    model_path = Path('./dat/model/yukari_2nd/predictor_120000.npz')
+    config_path = Path('./dat/model/yukari_2nd/config.json')
     # model_path = Path('./trained/akane-super-resolution/predictor_240000.npz')
     # config_path = Path('./trained/akane-super-resolution/config.json')
     sr_config = create_sr_config(config_path)
